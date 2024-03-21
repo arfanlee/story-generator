@@ -1,12 +1,9 @@
 # 004_AI_Children_Storybook_Generator
 
-import os
 from openai import OpenAI
-from IPython.display import Image
 
 import streamlit as st
 from StoryMethods import StoryMethods as sm
-
 
 client = OpenAI(
     api_key=st.secrets("OPENAI_API_KEY")
