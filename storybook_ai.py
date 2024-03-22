@@ -13,14 +13,15 @@ def main():
     story_methods = sm()
 
     # Streamlit layouts
-    st.title = "Children story generator"
+    st.title("Story and cover generator")
 
     user_prompt = st.text_area("Enter a prompt for the story:")
 
     # Generate the story
     if st.button("Generate story"):
         generated_story = story_methods.story_ai(client, user_prompt)
-        st.title = story_methods.title_ai(client, generated_story)
+        title = story_methods.title_ai(client, generated_story)
+        st.header(title)
 
         # Generate a detailed prompt to generate a cover from the story
         design_prompt = story_methods.design_ai(client, generated_story)
@@ -31,7 +32,7 @@ def main():
 
         st.divider()
 
-        st.write(generated_story)
+        st.write_stream(generated_story)
 
 if __name__ == "__main__":
     main()
