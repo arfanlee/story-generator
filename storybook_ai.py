@@ -32,7 +32,7 @@ def main():
 
         st.divider()
 
-        st.write_stream(generated_story)
+        st.write(generated_story)
 
 if __name__ == "__main__":
     main()

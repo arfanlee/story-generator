@@ -21,7 +21,7 @@ class StoryMethods:
             {"role": "system", "content": "You are a marketing specialist with the story provided, come up with a attractive title for the story."},
             {"role": "user", "content": story}
         ],
-        max_tokens = 10,
+        max_tokens = 100,
         temperature = 1.3
         )
 
