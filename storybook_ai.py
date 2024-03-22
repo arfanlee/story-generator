@@ -20,10 +20,7 @@ def main():
     # Generate the story
     if st.button("Generate story"):
         generated_story = story_methods.story_ai(client, user_prompt)
-        st.write('Generated story')
-        st.write(generated_story)
-
-        st.divider()
+        st.title = story_methods.title_ai(client, generated_story)
 
         # Generate a detailed prompt to generate a cover from the story
         design_prompt = story_methods.design_ai(client, generated_story)
@@ -32,6 +29,9 @@ def main():
         image_url = story_methods.cover_ai(client, design_prompt)
         st.image(image_url, caption='Generated cover image', use_column_width=True)
 
+        st.divider()
+
+        st.write(generated_story)
 
 if __name__ == "__main__":
     main()
