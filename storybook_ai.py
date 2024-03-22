@@ -6,7 +6,7 @@ import streamlit as st
 from StoryMethods import StoryMethods as sm
 
 client = OpenAI(
-    api_key=st.secrets("OPENAI_API_KEY")
+    api_key=st.secrets["OPENAI_API_KEY"]
 )
 
 def main():
