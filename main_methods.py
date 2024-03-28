@@ -45,7 +45,7 @@ class StoryMethods:
         design_response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": """Based on the story given, you will design a detailed imgae prompt for the cover image of this story. The image prompt
+            {"role": "system", "content": """Based on the story given, you will design a detailed image prompt for the illustration of this story. The image prompt
                                             should include theme of the story with relevant colour, the output should be within 100 characters"""},
             {"role": "user", "content": story}
         ],
