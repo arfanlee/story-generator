@@ -1,6 +1,6 @@
 class StoryMethods:
 
-    def story_ai(self, client, prompt):
+    def story_ai(client, prompt):
         story_response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -14,7 +14,7 @@ class StoryMethods:
         story = story_response.choices[0].message.content
         return story
 
-    def title_ai(self, client, story):
+    def title_ai(client, story):
         story_response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -28,7 +28,7 @@ class StoryMethods:
         title = story_response.choices[0].message.content
         return title
 
-    def cover_ai(self, client, image_prompt):
+    def cover_ai(client, image_prompt):
         image_response = client.images.generate(
         model="dall-e-3",
         prompt=image_prompt,
@@ -41,11 +41,11 @@ class StoryMethods:
         return image_url
     
     # take the generated story and generate a story
-    def design_ai(self, client, story):
+    def design_ai(client, story):
         design_response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": """Based on the story given, you will design a detailed imgae prompt for the cover image of this story. The image prompt
+            {"role": "system", "content": """Based on the story given, you will design a detailed image prompt for a cover image of this story. The image prompt
                                             should include theme of the story with relevant colour, the output should be within 100 characters"""},
             {"role": "user", "content": story}
         ],
